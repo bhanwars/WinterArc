@@ -1,0 +1,8 @@
+{
+  "appId": "com.bhanwar.winterarc",
+  "appName": "Winter Arc",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#faf8ff"
+  }
+}

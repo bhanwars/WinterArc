@@ -12,6 +12,7 @@
 - Choose the arc start date, duration (7–365 days), and the hour a new tracking day begins.
 - Export a JSON backup of your goals and check-ins.
 - Ask a local AI coach to make a practical daily plan around your goals, focus, and energy.
+- Install the Android app from a signed Google Play release; tracking also works offline with on-device storage.
 - Use the app on mobile or desktop, with no account and no cloud database.
 
 ## Run it in your browser with one click
@@ -24,7 +25,7 @@ The goal tracker works in the Codespace. The optional AI planner needs Ollama ru
 
 ### 1. Install Node.js
 
-Use Node.js 18 or newer. Winter Arc has no npm dependencies.
+Use Node.js 22 or newer. Winter Arc has no runtime npm dependencies.
 
 ### 2. Start the app
 
@@ -36,9 +37,25 @@ npm start
 
 Open [http://localhost:4173](http://localhost:4173). Your goals and check-ins are stored in this browser's local storage. Use **Export** to save a backup before clearing browser data or switching devices.
 
+## Build the Android app for Google Play
+
+The repository includes a Capacitor Android project. Install [Node.js 22+](https://nodejs.org/), [pnpm](https://pnpm.io/installation), and Android Studio with Android SDK 36, then run:
+
+```bash
+pnpm install
+pnpm android:sync
+pnpm android:open
+```
+
+In Android Studio, create a signed **Android App Bundle (AAB)** using **Build → Generate Signed Bundle / APK → Android App Bundle**. Enroll in Play App Signing and upload the bundle through Play Console. The app targets API 36 for new Google Play submissions. The application ID is `com.bhanwar.winterarc`; choose and confirm your final unique ID before publishing, because changing it later creates a different app.
+
+The Android tracker saves data on-device. Its day planner makes a useful starter plan offline; AI-personalized plans require an Ollama server and are available when the self-hosted web app can reach that server. The app includes a privacy policy screen; use the public [`privacy.html`](https://github.com/bhanwars/WinterArc/blob/main/privacy.html) page as the Play Console policy link.
+
+Google Play review, developer account setup, signing, store listing, and any required testing are completed in Play Console. For personal developer accounts created after November 13, 2023, Google currently requires a closed test with at least 12 continuously opted-in testers for 14 days before applying for production access.
+
 ## Set up the free local AI coach (optional)
 
-The tracker works without AI. To use **Plan your day**, install [Ollama](https://ollama.com/download) and download a small open model:
+The tracker works without AI. The Android app can draft a simple plan offline. To use AI-personalized **Plan your day** suggestions in the self-hosted web version, install [Ollama](https://ollama.com/download) and download a small open model:
 
 ```bash
 ollama pull qwen2.5:1.5b

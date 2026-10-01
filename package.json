@@ -4,6 +4,21 @@
   "private": true,
   "description": "A beautiful, local-first goal tracker with an open-model daily planning coach.",
   "type": "module",
-  "scripts": { "start": "node server.mjs" },
-  "engines": { "node": ">=18" }
+  "scripts": {
+    "start": "node server.mjs",
+    "build:web": "node scripts/build-web.mjs",
+    "android:add": "pnpm run build:web && cap add android",
+    "android:sync": "pnpm run build:web && cap sync android",
+    "android:open": "cap open android"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/core": "^8.5.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.2"
+  }
 }
