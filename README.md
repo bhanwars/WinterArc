@@ -33,13 +33,13 @@ Open [http://localhost:4173](http://localhost:4173). Your goals and check-ins ar
 The tracker works without AI. To use **Plan your day**, install [Ollama](https://ollama.com/download) and download a small open model:
 
 ```bash
-ollama pull llama3.2:1b
+ollama pull qwen2.5:1.5b
 ```
 
 Keep Ollama running, then start Winter Arc with `npm start` and open the app at `http://localhost:4173`. The app sends your goal titles, check-in status, streaks, energy selection, and focus note to Ollama on your own computer. The planning request is handled locally; Winter Arc does not require a paid API key or send your plan to a hosted AI service. Model downloads require an internet connection and disk space. You can use another model already installed with `OLLAMA_MODEL`, for example:
 
 ```bash
-OLLAMA_MODEL=llama3.2 npm start
+OLLAMA_MODEL=qwen2.5:1.5b npm start
 ```
 
 On Windows PowerShell, set that option with `$env:OLLAMA_MODEL="llama3.2"` before `npm start`.
