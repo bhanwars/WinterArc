@@ -55,4 +55,3 @@ This project is intended to run on your computer because it stores your data in 
 ## License
 
 MIT. See [LICENSE](LICENSE).
-# WinterArc

@@ -1,0 +1,9 @@
+{
+  "name": "winter-arc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A beautiful, local-first goal tracker with an open-model daily planning coach.",
+  "type": "module",
+  "scripts": { "start": "node server.mjs" },
+  "engines": { "node": ">=18" }
+}
