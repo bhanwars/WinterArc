@@ -1,5 +1,7 @@
 # Winter Arc
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/bhanwars/WinterArc)
+
 **Make today count.** Winter Arc is a calm, local-first goal tracker for building consistency one day at a time. It takes its visual direction and core habit-tracking ideas from the supplied Winter Arc reference and turns them into a complete, responsive app.
 
 ## What you can do
@@ -11,6 +13,12 @@
 - Export a JSON backup of your goals and check-ins.
 - Ask a local AI coach to make a practical daily plan around your goals, focus, and energy.
 - Use the app on mobile or desktop, with no account and no cloud database.
+
+## Run it in your browser with one click
+
+Click **Open in GitHub Codespaces** above, then create the Codespace. It starts the app and opens a browser preview automatically. This requires signing into GitHub and having Codespaces available on your account; usage may count against your Codespaces allowance.
+
+The goal tracker works in the Codespace. The optional AI planner needs Ollama running in the same Codespace; the local Ollama setup below is for running Winter Arc on your own computer.
 
 ## Run it
 
@@ -36,17 +44,17 @@ The tracker works without AI. To use **Plan your day**, install [Ollama](https:/
 ollama pull qwen2.5:1.5b
 ```
 
-Keep Ollama running, then start Winter Arc with `npm start` and open the app at `http://localhost:4173`. The app sends your goal titles, check-in status, streaks, energy selection, and focus note to Ollama on your own computer. The planning request is handled locally; Winter Arc does not require a paid API key or send your plan to a hosted AI service. Model downloads require an internet connection and disk space. You can use another model already installed with `OLLAMA_MODEL`, for example:
+Keep Ollama running, then start Winter Arc with `npm start` and open the app at `http://localhost:4173`. The app sends your goal titles, check-in status, streaks, energy selection, and focus note to Ollama on the machine running Winter Arc. The planning request is handled by the local model; Winter Arc does not require a paid API key or send your plan to a hosted AI service. Model downloads require an internet connection and disk space. The server defaults to `qwen2.5:1.5b`; to choose a different model already installed in Ollama, set `OLLAMA_MODEL` when starting it:
 
 ```bash
-OLLAMA_MODEL=qwen2.5:1.5b npm start
+OLLAMA_MODEL=qwen2.5:7b npm start
 ```
 
-On Windows PowerShell, set that option with `$env:OLLAMA_MODEL="llama3.2"` before `npm start`.
+On Windows PowerShell, set that option with `$env:OLLAMA_MODEL="qwen2.5:7b"` before `npm start`.
 
 ## Privacy and storage
 
-Goal data is saved in local storage in the browser profile where you use the app. The optional planner sends only the information shown above to the Ollama service listening on your own machine. Do not enter sensitive personal information in the focus note. The app has no account, analytics, or remote database.
+Goal data is saved in local storage in the browser profile where you use the app. The optional planner sends only the information shown above to the Ollama service listening on the machine running the app. In GitHub Codespaces, that machine is a GitHub-hosted development environment. Do not enter sensitive personal information in the focus note. The app has no account, analytics, or remote database.
 
 ## Deploying
 

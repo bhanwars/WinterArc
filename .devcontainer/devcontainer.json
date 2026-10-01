@@ -1,0 +1,15 @@
+{
+  "name": "Winter Arc",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "forwardPorts": [4173],
+  "portsAttributes": {
+    "4173": {
+      "label": "Winter Arc",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "remoteEnv": {
+    "HOST": "0.0.0.0"
+  },
+  "postStartCommand": "nohup npm start > /tmp/winter-arc.log 2>&1 < /dev/null &"
+}

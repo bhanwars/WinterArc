@@ -55,4 +55,4 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(port, '127.0.0.1', () => console.log(`Winter Arc is ready at http://localhost:${port}`));
+server.listen(port, process.env.HOST || '127.0.0.1', () => console.log(`Winter Arc is ready at http://localhost:${port}`));
